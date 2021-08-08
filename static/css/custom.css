@@ -1,0 +1,19 @@
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+.btn-light{
+    font-size: 24px;
+    color:gray;
+    background: none;
+} 
+.btn-up:disabled {
+    color: green;
+    opacity: 1;
+    font-size: 24px;
+}
+.btn-down:disabled {
+    color: red;
+    opacity: 1;
+    font-size: 24px;
+}
