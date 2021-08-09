@@ -4,6 +4,9 @@ import { connect } from 'react-redux'
 import {bindActionCreators} from 'redux';
 import { Loader } from '@googlemaps/js-api-loader';
 
+//import util
+import {numFormatter} from '../utils/commons'
+
 //import config
 import { mapStyle, mapApi } from '../config/MapConfig'
 
@@ -91,7 +94,7 @@ class Map extends React.Component {
             });
             const contentString =
               '<div id="content">' +
-              '<p> <b class="country_name">' + conName + '</b><br> Population : '+ country.population +'<br> Region : ' + country.region +'</p>'
+              '<p> <b class="country_name">' + conName + '</b><br> Population : '+ numFormatter(country.population) +'<br> Region : ' + country.region +'</p>'
               "</div>";
           
             const infowindow = new google.maps.InfoWindow({
