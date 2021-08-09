@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 import { Loader } from '@googlemaps/js-api-loader';
 
 //import config
-import { mapStyle } from '../config/MapConfig'
+import { mapStyle, mapApi } from '../config/MapConfig'
 
 //importing styles
 import mapCss from '../static/scss/map.scss'
@@ -36,7 +36,7 @@ class Map extends React.Component {
   loadMap(){
     let {dataToVisualize} = this.props;
     const loader = new Loader({
-      apiKey: "AIzaSyBaiaoFU5qdbf5hYGKMRhotERNJDLrgHzQ",
+      apiKey: mapApi.API_KEY,
       version: "weekly",
       libraries: ["places"]
     });

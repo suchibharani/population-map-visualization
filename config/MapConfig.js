@@ -1,3 +1,7 @@
+export const mapApi = {
+  API_KEY : 'AIzaSyBaiaoFU5qdbf5hYGKMRhotERNJDLrgHzQ'
+}
+
 export const mapStyle = [
   {
     "elementType": "geometry",

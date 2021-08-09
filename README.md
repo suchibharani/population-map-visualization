@@ -1,4 +1,4 @@
-# subreddit-react-app
+# Interactive map for comparing Population among countries 
 
 ## Following tech implemented in this app
 
@@ -6,7 +6,8 @@
 - React JS
 - Redux Saga 
 - Express JS
-- Reddit API
+- Google Map API
+- D3 JS for visualization
 - Eslint 
 
 # How to run and install
