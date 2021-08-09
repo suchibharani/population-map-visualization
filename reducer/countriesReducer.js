@@ -2,7 +2,7 @@ import { actionTypes } from '../constants/actionTypes'
 
 import {exampleInitialState}  from './initialState'
 
-function userDataReducer(state = exampleInitialState, action) {
+function countriesReducer(state = exampleInitialState, action) {
   switch (action.type) {
 
     case actionTypes.LOAD_DATA_SUCCESS:
@@ -13,4 +13,4 @@ function userDataReducer(state = exampleInitialState, action) {
   }
 }
 
-export default userDataReducer
+export default countriesReducer
