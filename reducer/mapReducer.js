@@ -2,10 +2,11 @@ import { actionTypes } from '../constants/actionTypes'
 
 import {exampleInitialState}  from './initialState'
 
-function userDataReducer(state = exampleInitialState, action) {
+function mapReducer(state = exampleInitialState, action) {
   switch (action.type) {
-
     case actionTypes.LOAD_DATA_SUCCESS:
+      return action.data
+    case actionTypes.UPDATE_DATA:
       return action.data
 
     default:
@@ -13,4 +14,4 @@ function userDataReducer(state = exampleInitialState, action) {
   }
 }
 
-export default userDataReducer
+export default mapReducer

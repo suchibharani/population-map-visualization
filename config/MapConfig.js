@@ -11,7 +11,7 @@ export const mapStyle = [
     "elementType": "labels.text.fill",
     "stylers": [
       {
-        "color": "#523735"
+        "visibility": "off"
       }
     ]
   },
@@ -54,7 +54,7 @@ export const mapStyle = [
     "elementType": "labels.text.fill",
     "stylers": [
       {
-        "color": "#ae9e90"
+        "visibility": "off"
       }
     ]
   },
@@ -124,7 +124,7 @@ export const mapStyle = [
     "elementType": "labels.text.fill",
     "stylers": [
       {
-        "color": "#447530"
+        "visibility": "off"
       }
     ]
   },
@@ -230,7 +230,7 @@ export const mapStyle = [
     "elementType": "labels.text.fill",
     "stylers": [
       {
-        "color": "#806b63"
+        "visibility": "off"
       }
     ]
   },
@@ -256,7 +256,7 @@ export const mapStyle = [
     "elementType": "labels.text.fill",
     "stylers": [
       {
-        "color": "#8f7d77"
+        "visibility": "off"
       }
     ]
   },
@@ -301,7 +301,7 @@ export const mapStyle = [
     "elementType": "labels.text.fill",
     "stylers": [
       {
-        "color": "#92998d"
+        "visibility": "off"
       }
     ]
   }

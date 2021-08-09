@@ -61,5 +61,21 @@ a{
       transform: scale(1.0);
     }
   }
-
-
+  .container-fluid{
+    // padding: 0;
+    // margin: 0;
+}
+.col-12{
+  padding: 0;
+}
+.fixed_container {
+  position: fixed;
+  width: 40%;
+  z-index: 8;
+  right: 0;
+  padding: 10px;
+  background: white;
+}
+.search{
+  padding: 20px;
+}

@@ -12,7 +12,7 @@ import mapCss from '../static/scss/map.scss'
 
 // Import actions
 import * as mapActions from '../actions';
-var map,bounds;
+var map;
 
 class Map extends React.Component {
   componentWillUnmount() {
@@ -26,36 +26,25 @@ class Map extends React.Component {
     this.loadMap();
 
   }
+  componentDidUpdate(prevProps) {
+    if(prevProps.dataToVisualize != this.props.dataToVisualize){
+      this.loadMap();
+
+    }
+  }
+
   loadMap(){
+    let {dataToVisualize} = this.props;
     const loader = new Loader({
       apiKey: "AIzaSyBaiaoFU5qdbf5hYGKMRhotERNJDLrgHzQ",
       version: "weekly",
       libraries: ["places"]
     });
-  //   {
-  //     center: centerPos,
-  //     zoom: zoomlevel,
-  //     mapTypeId: 'roadmap',
-  //     styles: mapStyle,
-  //     mapTypeControl: false,
-  //     draggable: true,
-  //     panControl: false,
-  //     streetViewControl: false,
-  //     scrollwheel: true,
-  //     disableDefaultUI: false,
-  //     disableDoubleClickZoom: true,
-  //     gestureHandling: 'greedy',
-  //     fullscreenControl: false,
-  //     backgroundColor : '#000000',
-  //     zoomControlOptions: {
-  //         position: google.maps.ControlPosition.LEFT_BOTTOM
-  //     },
-  // }
     
     loader
     .load()
     .then((google) => {
-      bounds = new google.maps.LatLngBounds();
+      // bounds = new google.maps.LatLngBounds();
       map = new google.maps.Map(document.getElementById("map"), {
         center: {
           lat: 0,
@@ -77,7 +66,47 @@ class Map extends React.Component {
             // position: google.maps.ControlPosition.LEFT_BOTTOM
         },
       });
-      console.warn(map, bounds)
+      map.setOptions({ minZoom: 2, maxZoom: 6 });
+      if(dataToVisualize && dataToVisualize.length > 0){
+        dataToVisualize.forEach(function(country){
+            var conName = country.name;
+            var markerIcon = (country.flag && country.flag!='') ? country.flag :'/static/img/placeholder.png'+'?iso_code='+country.alpha2Code
+            var image = {
+              url: markerIcon,
+              // This marker is 20 pixels wide by 32 pixels high.
+              scaledSize: new google.maps.Size(25, 25),
+              // The origin for this image is (0, 0).
+              origin: new google.maps.Point(0, 0),
+              // The anchor for this image is the base of the flagpole at (0, 32).
+              anchor: new google.maps.Point(25, 25),
+              labelOrigin : new google.maps.Point(10, 35),
+            };
+            let marker = new google.maps.Marker({
+              map : map,
+              position : new google.maps.LatLng(parseFloat(country.latlng[0]),parseFloat(country.latlng[1])),
+              icon : image,
+              Title : country.iso_code,
+              label : { text : conName , fontSize : "12px", fontWeight: "500", color : "#411262"},
+              // url : "/?isoCode=" +country.iso_code
+            });
+            const contentString =
+              '<div id="content">' +
+              '<p> <b class="country_name">' + conName + '</b><br> Population : '+ country.population +'<br> Region : ' + country.region +'</p>'
+              "</div>";
+          
+            const infowindow = new google.maps.InfoWindow({
+              content: contentString,
+            });
+            marker.addListener("click", () => {
+              infowindow.open({
+                anchor: marker,
+                map,
+                shouldFocus: false,
+              });
+            });
+            // console.warn(markers);
+        });
+      }
     })
     .catch(e => {
       // do something
@@ -99,12 +128,13 @@ class Map extends React.Component {
 
 
   Map.propTypes = {
-    children: PropTypes.any,
+    dataToVisualize: PropTypes.any,
   };
   
   function mapStateToProps(state) {
     return {
       error : state.error,
+      dataToVisualize: state.dataToVisualize
     }
   }
   
