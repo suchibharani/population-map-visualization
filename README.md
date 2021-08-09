@@ -10,6 +10,11 @@
 - D3 JS for visualization
 - Eslint 
 
+# How to add Google Map API key
+
+- Please locate the file MapConfig.js under config folder.
+- Replace the API_KEY with your key. 
+
 # How to run and install
 
 ## Run with development mode
@@ -46,12 +51,12 @@ and go to http://localhost:3500/
 
 # Screenshots
 
-## Subreddit page with posts 
+## Web view
 
 ![alt text](https://raw.githubusercontent.com/suchibharani/population-map-visualization/master/static/img/web.png)
 
 
-## Individual post
+## Mobile view
 
 ![alt text](https://raw.githubusercontent.com/suchibharani/population-map-visualization/master/static/img/mobile.png)
 
