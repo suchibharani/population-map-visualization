@@ -76,11 +76,6 @@ class Index extends React.Component {
     let {selectOptions} = this.state;
     return (
       <div className="index__container container-fluid" id="index__container" > 
-          {/* <header className="fixed_container">
-              <div className="header_container">
-                   
-              </div>
-          </header> */}
           
           <div className="row">
               <div className="col-md-5 col-12">
