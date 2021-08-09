@@ -48,11 +48,11 @@ and go to http://localhost:3500/
 
 ## Subreddit page with posts 
 
-![alt text](https://raw.githubusercontent.com/suchibharani/subreddit-react-app/main/static/img/image2.png)
+![alt text](https://raw.githubusercontent.com/suchibharani/population-map-visualization/master/img/web.png)
 
 
 ## Individual post
 
-![alt text](https://raw.githubusercontent.com/suchibharani/subreddit-react-app/main/static/img/image1.png)
+![alt text](https://raw.githubusercontent.com/suchibharani/population-map-visualization/master/img/mobile.png)
 
 
